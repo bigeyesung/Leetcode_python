@@ -15,6 +15,10 @@ def isAlienSorted(words, order):
         return all(w1 <= w2 for w1, w2 in zip(words, words[1:]))
 
 
+
+arr = [1,3,4]
+arr.sort(reverse=True)
+
 word = ["hello","leetcode"]
 order = "hlabcdefgijkmnopqrstuvwxyz"
 
