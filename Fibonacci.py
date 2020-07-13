@@ -1,9 +1,8 @@
 from numpy import matrix
 
 
-#Time complexity: O(2^n)
+#Time complexity: O(2^n): 2 to the power n
 #Space complexity: O(n): Based on how much memory is used
-
 def fibi(num, depth):
     print("depth: ", depth)
     if num <= 0:
@@ -12,6 +11,8 @@ def fibi(num, depth):
         return 1
     else:
         return fibi(num-2, depth+1) + fibi(num-1, depth + 1)
+
+
 
 # time: O(n)
 # space: O(n)
@@ -58,21 +59,24 @@ def FastFibonacci(n):
     return n  # F(0) = 0, F(1) = 1
   mat = matrix([[1, 1], [1, 0]], dtype=object)
   mat = MatrixPower(mat, n - 1)
+  tmp = mat[0, 1]
   return mat[0, 0]
 
 
 # this is the template for MatrixPower
+# https://stackoverflow.com/questions/38922606/what-is-x-1-and-x-1
 def pow3(base,exponent):
     ans = 1
     while(exponent!=0):
-        if (exponent&1): # 
+        if (exponent&1): # the last bit is 1
             ans *= base
         base *= base
         exponent>>=1 # #右移动一位就是除以2
     return ans
 
 if __name__ == "__main__":
-    pow3(2,10)
+    pow3(2,3)
     ret = fibi(5,1)
     ret = fibi_1(5)
+    ret1 = FastFibonacci(5)
     print(ret)
